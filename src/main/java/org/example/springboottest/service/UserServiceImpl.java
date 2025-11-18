@@ -1,6 +1,7 @@
 package org.example.springboottest.service;
 
 import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
 import org.example.springboottest.dao.UserDao;
 import org.example.springboottest.entity.User;
 import org.springframework.stereotype.Service;
@@ -9,14 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Objects;
 
+@AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
-
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
 
     @Transactional(readOnly = true)
     @Override
